@@ -1,0 +1,12 @@
+name: Build Khatwati iOS IPA (v52)
+on: [push, workflow_dispatch]
+jobs:
+  build-ipa:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: chmod +x build_ipa.sh && ./build_ipa.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Khatwati-v52-iOS-IPA
+          path: Khatwati-v52.ipa
